@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Please Login</title>
+
+	<!-- Vue -->
+	<!--<script src="js/vue.js"></script>-->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- css -->
+	<link rel="stylesheet" href="css/login_vue.css">
+
+	<!-- Axios(post) -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+	<form class = "login" id = "login" ><!--action = "http://api.dasom.io:8000/signin" method ="post"-->
+		<span>ID : </span><input placeholder="Enter Your ID" v-model.lazy = "id" /><br/>
+		<span>PW : </span> <input placeholder="Enter Your PW" v-model.lazy = "password" /><br/><br/>
+		<button v-on:click = "login">Login</button> <!--class = "login_button" type="submit"-->
+		<p>{{id}}</p>
+		<p>{{password}}</p>
+	</form>
+</body>
+</html>
+
+<!-- login module -->
+<script src="./js/login_vue.js"></script>

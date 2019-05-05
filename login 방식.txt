@@ -1,0 +1,24 @@
+1. 사용자가 username&pw를 폼으로 서버에 요청
+2. 서버는 요청이 들어오면 DB와 비교해 유효하면 토큰생성 후 토큰 정보를 Response 헤더에 포함시켜 반환. 그후 로컬 스토리지에 토큰을 저장.
+3. 클라이언트가 만약 제한된 end point(ex. 커뮤니티)에 접근할때 모든 Request Header에 토큰 정보를 포함시킴.
+4. Request Header에 있는 토큰이 유효하면 특정 end point에 접근하는걸 허용한 후 JSON 또는 XML 포맷으로 응답.
+
+*vue는 토큰을 local storage에 저장한다고 한다. local storage에서 어디?
+
+이때 토큰은 JWT 포맷.
+JWT : JSON Web Token이 약자이며 인증 헤더 내에서 사용되는 토큰 포맷. 이 토큰은 두 개의 안전한 방법으로 통신할 수 있도록 도와줌. 
+
+JWT는 .을 구분자로 3가지의 문자열로 이루어져 있음.
+1. 헤더(header)
+  1) typ : 토큰의 타입 지정. (ex. JWT)
+  2) alg : 해싱 알고리즘 지정. 보통 HMAC SHA256 또는 RSA 사용. 이 알고리즘은 토큰을 검증할 때 사용되는 signature 부분에서 사용됨.
+{
+  "typ" : "JWT",
+  "alg" : "HS256"
+}
+2. 내용(payload) : 여러 정보. 결제정보, 회원 정보등이 이쪽에 들어감.
+3. 서명(signature) 1+2를 합쳐 해싱시킨값.
+
+이거 3개를 이제 합쳐서 보냄.
+
+
