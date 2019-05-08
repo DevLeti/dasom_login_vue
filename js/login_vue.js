@@ -8,7 +8,7 @@ var login = new Vue({
 
 	methods :{
 		login : function(){
-			axios.post("http://api.dasom.io:8000/signin",{
+			axios.post("http://api.dasom.io:8000/v1/signin",{
 				id : this.id,
 				password : this.password
 			})
