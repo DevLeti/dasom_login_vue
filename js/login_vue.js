@@ -1,3 +1,4 @@
+// USING VUE
 // var login = new Vue({
 // 	el : "#login",
 
@@ -53,49 +54,37 @@
 // 	성공 : 200, 실패 : 401
 // */
 
-// /*
-// var app2 = new Vue({
-//   el: '#app-2',
-//   data: {
-//     message: '이 페이지는 ' + new Date() + ' 에 로드 되었습니다'
-//   }
-// })
-
-// var app3 = new Vue({
-// 	el: "#app-3",
-// 	data :{
-// 		seen : false
-// 	}
-// })
-// */
-// /*
-// var app6 = new Vue({
-// 	el: "#app-6",
-// 	data :{
-// 		message : "워우 Vue.js!"
-// 	},
-// 	methods :{
-// 		reverseMessage : function() {
-// 			this.message = this.message.split('').reverse().join('')
-// 		}
-// 	}
-// })
-// */
-
-
+// USING JS
 const formEl = document.querySelector(`form`);
 formEl.addEventListener(`submit`, (e) => {
 	e.preventDefault();
+
+	//콘솔로 받은 값 확인
+	var user_input_id = $('input[name=id]').val();
+	var user_input_pw = $('input[name=password]').val();
+	console.log(user_input_id);
+	console.log(user_input_pw);
+	
+	//axios를 이용해 post형식으로 서버에 정보 확인.
 	axios.post("http://api.dasom.io:8000/v1/signin", {
-		id: document.querySelector(`input[name="id"]`),
-		password: this.password
+		id: $('input[name=id]').val(),
+		password: $('input[name=password]').val()
 	})
+		//성공시 logged_in.html로 redirect
 		.then(function (response) {
 			console.log(response);
-			location.href = "/logged_in.html";
+			location.href = document.location.href +"logged_in.html";
 		})
+		//실패시 페이지 reload
 		.catch(function (error) {
 			console.log(error);
-			document.write("!!!ERROR!!!");
+			location.reload();
 		})
 });
+
+// /*
+// id / password
+// 2018100000 / test
+// 2019100000 / test
+// 2018100001 / test
+// */

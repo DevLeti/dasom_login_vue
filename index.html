@@ -44,16 +44,16 @@
 					</span>
 					
 					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-						<input v-model.lazy = "id" class="input100" type="text" placeholder="User name">
+						<input name = "id" class="input100" type="text" placeholder="User name">
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
-						<input v-model.lazy = "password" class="input100" type="password" placeholder="Password">
+						<input name = "password" class="input100" type="password" placeholder="Password">
 						<span class="focus-input100"></span>
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button v-on:click = "login" class="login100-form-btn">
+						<button type="submit" class="login100-form-btn">
 							Sign in
 						</button>
 					</div>
@@ -73,8 +73,6 @@
 							Sign Up
 						</a>
 					</div>
-					<p>{{id}}</p>
-					<p>{{password}}</p>
 				</form>
 
 				<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
