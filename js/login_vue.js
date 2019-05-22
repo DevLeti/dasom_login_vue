@@ -64,9 +64,9 @@ formEl.addEventListener(`submit`, (e) => {
 	var user_input_pw = $('input[name=password]').val();
 	console.log(user_input_id);
 	console.log(user_input_pw);
-	
+
 	//axios를 이용해 post형식으로 서버에 정보 확인.
-	axios.post("http://api.dasom.io:8000/v1/signin", {
+	axios.post("http://api.dasom.io:8000/signin", {
 		id: $('input[name=id]').val(),
 		password: $('input[name=password]').val()
 	})
